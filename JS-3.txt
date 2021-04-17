@@ -1,0 +1,47 @@
+//1
+
+var arr = [];
+var a = 1;
+console.log(arr.length)
+
+while (a < 100) {
+	a++
+	if (arr.length == 0) {
+  		arr.push(a);
+		continue
+	}
+	let isPrimeNumber = true;
+	for (let i = 0; i < arr.length; i++) {
+  		if (a % arr[i] == 0) isPrimeNumber = false;
+	}
+	if (isPrimeNumber) arr.push(a);
+}
+
+console.log(arr);
+
+//2
+
+var arr = [["chair", 10, 5],["table", 25, 3],["cupboard", 50, 2]];
+
+function countBucketPrice (array) {
+	var price = 0;
+
+	for (let i = 0; i < array.length; i++) {
+		price += array[i][1] * array[i][2];
+	}
+
+	return(price);
+}
+
+console.log(countBucketPrice(arr));
+
+//3
+
+for (i = 1; i <= 9; console.log(i++)){}
+
+//4
+
+for (i = "*"; i.length <= 20; i += "*"){
+	console.log(i)
+}
+
