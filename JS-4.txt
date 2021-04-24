@@ -1,0 +1,57 @@
+//1
+
+function digitsOfNumbers(num) {
+	num = get_valid_number(num);
+  if (num) {
+		return {
+  		num,
+    	first_num : Math.floor(this.num / 100),
+    	second_num : Math.floor(this.num / 10 % 10),
+    	third_num : Math.floor(this.num % 10)
+  	}
+  }
+}
+
+function getValidNumber(num){
+	if (!isNaN(num)) {
+  	num = +num;
+  	if (99 < num < 1000 && num % 1 == 0) return num;
+  }
+  
+  return false
+}
+
+//2
+
+function createItem(name, price, amount) {
+	name, price, amount = getValidItem(name, price, amount);
+	return {
+    	name,
+    	price,
+    	amount
+  	}
+}
+
+function getValidItem(name, price, amount) {
+	if (!isNaN(price) && !isNaN(amount)) {
+  	if (0 <= price && 0 <= amount) return name, +price, +amount;
+  }
+  
+  return 0, 0, 0;
+}
+
+function countBucketPrice (Items) {
+	var price = 0;
+
+	for (let i = 0; i < Items.length; i++) {
+		price += Items[i].price * Items[i].amount;
+	}
+
+	return(price);
+}
+
+
+var Items = [createItem("chair", 10, 5),
+	createItem("table", 25, 3),
+	createItem("cupboard", 50, 2)];
+console.log(countBucketPrice(Items));
