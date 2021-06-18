@@ -1,0 +1,36 @@
+//1
+
+function digitsOfNumbers(num) {
+	if (num < 1000){
+		return {
+  		num : num,
+    	first_num : Math.floor(num / 100),
+    	second_num : Math.floor(num / 10 % 10),
+    	third_num : Math.floor(num % 10)
+  	}
+  }
+  
+  console.log("Число выше 999")
+  return {}
+}
+
+console.log(digitsOfNumbers(123))
+
+//2
+
+bucket = {
+	total : 0,
+	items : [],
+
+	AddItem: function(name, price, amount) {
+		if (!isNaN(price) && !isNaN(amount) && (0 <= price && 0 <= amount)) {
+			this.items += [name, price, amount];
+			this.total += price * amount;
+			}
+	}
+}
+
+bucket.AddItem("chair", 10, 5);
+bucket.AddItem("table", 25, 3);
+bucket.AddItem("cupboard", 50, 2);
+console.log(bucket.total);
