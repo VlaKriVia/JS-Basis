@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="board"></div>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        tr {
+            width: 20px;
+            height: 20px;
+        }
+        td {
+            border: 1px solid #888;
+            width: 20px;
+            height: 20px;
+            background-color: #eee;
+        }
+    </style>
+    <script>
+        let board = document.getElementById('board');
+        let boardCells = document.createElement('table');
+        const letters = 'abcdefgh';
+
+        for (let i = 0; i < 8; i++) {
+            const line = document.createElement('tr');
+            for (let j = 0; j < 8; j++) {
+                const cell = document.createElement('td');
+                if ((i+j)%2==0) {
+                    cell.style.backgroundColor = '#000000';
+                    cell.style.color = '#FFFFFF'
+                } else if ((i+j)%2==1) {
+                    cell.style.backgroundColor = '#FFFFFF';
+                    cell.style.color = '#000000'
+                }
+                if (j == 0) {
+                    cell.textContent += `${8-i}`
+                }
+                if (i == 7) {
+                    cell.textContent += `${letters[j]}`
+                }
+                line.appendChild(cell);
+            }
+            boardCells.appendChild(line);
+        }
+
+        board.appendChild(boardCells);
+    </script>
+</body>
+</html>
