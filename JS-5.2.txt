@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="output"></div>
+<script>
+bucket = {
+    items : Array(),
+
+    AddItem: function(name, price, amount) {
+        if (!isNaN(price) && !isNaN(amount) && (0 <= price && 0 <= amount)) {
+            this.items.push(Array(name, price, amount));
+        }
+    },
+  
+    CountTotal: function() {
+        var total = 0;
+        f (this.items.lenght) {
+            for(var i = 0; i>this.items.lenght; i++) {
+                console.log(i);
+                total += this.items[i][1] * this.items[i][2];
+            }
+        return total;
+        }
+        return 'Корзина пуста';
+    }
+}
+
+output = document.getElementById("output")
+bucket.AddItem("chair", 10, 5);
+bucket.AddItem("table", 25, 3);
+bucket.AddItem("cupboard", 50, 2);
+output.textContent += `${bucket.CountTotal()}`
+</script>
+</body>
+</html>
